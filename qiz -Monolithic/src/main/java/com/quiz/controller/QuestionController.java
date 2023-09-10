@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.quiz.Model.Question;
+import com.quiz.advice.TrackTime;
 import com.quiz.service.QuestionService;
 
 @RestController
@@ -22,6 +23,7 @@ public class QuestionController {
 	QuestionService questionService;
 	
 	@GetMapping("all")
+	@TrackTime
 	public ResponseEntity<List<Question>> getAllQuestions(){
 		return questionService.getAllQuestions();
 	}
